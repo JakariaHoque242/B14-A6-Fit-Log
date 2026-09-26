@@ -41,7 +41,6 @@ export default function MyPlan() {
         <p className="text-zinc-400 text-lg">Cap of five lifts for today. Finish them, then load more.</p>
       </div>
 
-      {/* Metrics Summary Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col justify-center">
           <p className="text-zinc-500 font-bold uppercase text-xs tracking-wider mb-1">Exercises</p>
@@ -57,7 +56,6 @@ export default function MyPlan() {
         </div>
       </div>
 
-      {/* Tabs and Sort */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div className="flex bg-zinc-900 border border-zinc-800 rounded-xl p-1 inline-flex">
           <button
@@ -97,7 +95,6 @@ export default function MyPlan() {
         </div>
       </div>
 
-      {/* List */}
       {displayList.length === 0 ? (
         <div className="text-center py-20 bg-zinc-900 border border-zinc-800 rounded-2xl">
           <h3 className="font-oswald text-3xl font-bold uppercase mb-2">NOTHING HERE YET</h3>

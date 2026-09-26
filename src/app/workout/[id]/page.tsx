@@ -37,7 +37,6 @@ export default async function WorkoutDetail({ params }: { params: Promise<{ id: 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="flex flex-col lg:flex-row gap-12">
-        {/* Left Side — Visual/Media */}
         <div className="lg:w-1/2">
           <div className="relative w-full aspect-square lg:aspect-auto lg:h-[600px] rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 sticky top-24">
             <Image
@@ -50,7 +49,6 @@ export default async function WorkoutDetail({ params }: { params: Promise<{ id: 
           </div>
         </div>
 
-        {/* Right Side — sections */}
         <div className="lg:w-1/2 flex flex-col">
           <h1 className="font-oswald text-4xl md:text-5xl font-bold uppercase mb-4">
             {workout.name}

@@ -15,7 +15,6 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full bg-zinc-950 border-b border-zinc-800 text-white px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-wider">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +34,6 @@ export default function Navbar() {
           FITLOG
         </Link>
 
-        {/* Middle: Links */}
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/"
@@ -57,7 +55,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Right: Badges */}
         <div className="flex items-center gap-3">
           <Link
             href="/my-plan"
