@@ -21,4 +21,4 @@ FitLog is a dark, no-nonsense gym companion that helps you browse a library of w
 [https://b14-a6-fit-log-phi.vercel.app](https://b14-a6-fit-log-phi.vercel.app) *(Replace with actual deployment link)*
 
 ## 🔗 GitHub Repository Link
-[https://github.com/yourusername/B14-A6-Fit-Log](https://github.com/yourusername/B14-A6-Fit-Log) *(Replace with actual repository link)*
+[https://github.com/JakariaHoque242/B14-A6-Fit-Log](https://github.com/JakariaHoque242/B14-A6-Fit-Log)
