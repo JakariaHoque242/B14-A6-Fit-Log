@@ -108,7 +108,7 @@ export default async function WorkoutDetail({ params }: { params: Promise<{ id: 
             <ol className="space-y-4 counter-reset-step">
               {workout.instructions.map((step, index) => (
                 <li key={index} className="flex gap-4">
-                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-zinc-800 text-[#ccff00] font-bold text-sm">
+                  <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-zinc-800 text-white font-bold text-sm">
                     {index + 1}
                   </span>
                   <p className="text-zinc-300 leading-relaxed pt-1">{step}</p>

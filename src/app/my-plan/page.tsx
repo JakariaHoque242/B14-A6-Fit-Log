@@ -4,7 +4,7 @@ import { usePlanContext } from "@/context/PlanContext";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Flame, Star, Check, X, ArrowRight, Activity, Timer, ChevronDown } from "lucide-react";
+import { Clock, Flame, Star, Check, X, ChevronDown } from "lucide-react";
 import clsx from "clsx";
 import { PlannedWorkout, Workout } from "@/types";
 
@@ -43,32 +43,17 @@ export default function MyPlan() {
 
       {/* Metrics Summary Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-[#ccff00]">
-            <Activity className="w-6 h-6" />
-          </div>
-          <div>
-            <p className="text-zinc-500 font-bold uppercase text-sm mb-1">Exercises</p>
-            <p className="text-3xl font-oswald font-bold">{exercises}</p>
-          </div>
+        <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col justify-center">
+          <p className="text-zinc-500 font-bold uppercase text-xs tracking-wider mb-1">Exercises</p>
+          <p className="text-3xl font-oswald font-bold">{exercises}</p>
         </div>
-        <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-[#ccff00]">
-            <Timer className="w-6 h-6" />
-          </div>
-          <div>
-            <p className="text-zinc-500 font-bold uppercase text-sm mb-1">Minutes</p>
-            <p className="text-3xl font-oswald font-bold">{minutes}</p>
-          </div>
+        <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col justify-center">
+          <p className="text-zinc-500 font-bold uppercase text-xs tracking-wider mb-1">Minutes</p>
+          <p className="text-3xl font-oswald font-bold">{minutes}</p>
         </div>
-        <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex items-center gap-4">
-          <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-[#ccff00]">
-            <Flame className="w-6 h-6" />
-          </div>
-          <div>
-            <p className="text-zinc-500 font-bold uppercase text-sm mb-1">Calories</p>
-            <p className="text-3xl font-oswald font-bold">{calories}</p>
-          </div>
+        <div className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col justify-center">
+          <p className="text-zinc-500 font-bold uppercase text-xs tracking-wider mb-1">Calories</p>
+          <p className="text-3xl font-oswald font-bold">{calories}</p>
         </div>
       </div>
 
@@ -121,10 +106,9 @@ export default function MyPlan() {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-[#ccff00] hover:bg-[#b3e600] text-black px-6 py-3 rounded-lg font-bold transition-colors"
+            className="inline-flex items-center justify-center bg-[#ccff00] hover:bg-[#b3e600] text-black px-6 py-3 rounded-lg font-bold transition-colors"
           >
             GO TO WORKOUTS
-            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       ) : (

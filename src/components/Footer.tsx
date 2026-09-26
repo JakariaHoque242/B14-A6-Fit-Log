@@ -20,9 +20,6 @@ export default function Footer() {
           </svg>
           FITLOG
         </div>
-        <p className="text-sm">
-          &copy; 2026 FitLog — Workout Library. Train hard, log honest.
-        </p>
       </div>
     </footer>
   );
