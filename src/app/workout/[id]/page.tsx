@@ -4,8 +4,9 @@ import WorkoutActions from "@/components/WorkoutActions";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const workout = await fetchWorkout(params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const workout = await fetchWorkout(resolvedParams.id);
   if (!workout) return { title: "Workout Not Found" };
   return {
     title: `${workout.name} | FitLog`,
@@ -25,8 +26,9 @@ async function fetchWorkout(id: string): Promise<Workout | null> {
   }
 }
 
-export default async function WorkoutDetail({ params }: { params: { id: string } }) {
-  const workout = await fetchWorkout(params.id);
+export default async function WorkoutDetail({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const workout = await fetchWorkout(resolvedParams.id);
 
   if (!workout) {
     notFound();
