@@ -12,7 +12,7 @@ export default function Hero() {
         <p className="text-[#ccff00] font-bold tracking-widest text-sm">WORKOUT LIBRARY</p>
         <h1 className="font-oswald text-5xl md:text-7xl font-bold uppercase leading-tight">
           Train with intent. <br className="hidden md:block" />
-          <span className="text-zinc-500">Log every set.</span>
+          Log every set.
         </h1>
         <p className="text-zinc-400 text-lg max-w-lg leading-relaxed">
           FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.
