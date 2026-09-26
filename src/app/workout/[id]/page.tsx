@@ -61,7 +61,7 @@ export default async function WorkoutDetail({ params }: { params: { id: string }
             {workout.muscleGroups.map((tag) => (
               <span
                 key={tag}
-                className="bg-zinc-900 border border-zinc-700 text-zinc-300 text-sm px-3 py-1.5 rounded-md uppercase font-bold"
+                className="bg-[#ccff00] text-black text-xs px-3 py-1 rounded-full uppercase font-bold"
               >
                 {tag}
               </span>
