@@ -18,7 +18,12 @@ export default function Library() {
       try {
         const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
         const data = await res.json();
-        setWorkouts(data);
+        if (Array.isArray(data)) {
+          setWorkouts(data);
+        } else {
+          console.error("API did not return an array", data);
+          setWorkouts([]);
+        }
       } catch (error) {
         console.error("Failed to fetch workouts", error);
       } finally {
