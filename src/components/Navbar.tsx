@@ -61,10 +61,10 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 border border-zinc-700 text-white px-3 py-1 rounded-full text-xs font-bold hover:bg-zinc-800 transition-colors"
+            className="flex items-center gap-2 bg-[#ccff00] text-black px-3 py-1 rounded-full text-xs font-bold hover:bg-[#b3e600] transition-colors"
           >
             <span>Plan</span>
-            <span className="bg-[#ccff00] text-black w-5 h-5 rounded-full flex items-center justify-center text-[10px]">
+            <span className="bg-black text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px]">
               {planCount}
             </span>
           </Link>
