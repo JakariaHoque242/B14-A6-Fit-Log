@@ -31,15 +31,15 @@ export default function WorkoutCard({ workout }: { workout: Workout }) {
           
           <div className="mt-auto pt-4 border-t border-zinc-800 flex items-center justify-between text-zinc-400 text-sm">
             <div className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-[#ccff00]" />
+              <Clock className="w-4 h-4 text-zinc-400" />
               <span>{workout.duration} min</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Flame className="w-4 h-4 text-orange-500" />
+              <Flame className="w-4 h-4 text-zinc-400 fill-zinc-400" />
               <span>{workout.caloriesBurned} kcal</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+              <Star className="w-4 h-4 text-zinc-400" />
               <span>{workout.rating}</span>
             </div>
           </div>
