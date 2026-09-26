@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   const handleScroll = () => {
@@ -20,18 +19,17 @@ export default function Hero() {
         </p>
         <button
           onClick={handleScroll}
-          className="flex items-center gap-2 bg-[#ccff00] hover:bg-[#b3e600] text-black px-6 py-4 rounded-lg font-bold transition-colors"
+          className="bg-[#ccff00] hover:bg-[#b3e600] text-black px-6 py-4 rounded-lg font-bold transition-colors inline-block"
         >
           BROWSE WORKOUTS
-          <ArrowDown className="w-5 h-5" />
         </button>
       </div>
-      <div className="flex-1 w-full aspect-square md:aspect-auto md:h-[500px] relative rounded-2xl overflow-hidden border border-zinc-800">
+      <div className="flex-1 w-full aspect-square md:aspect-auto md:h-[500px] relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/30">
         <Image 
           src="/banner.png"
           alt="FitLog Hero"
           fill
-          className="object-cover"
+          className="object-contain p-4"
           priority
         />
       </div>
