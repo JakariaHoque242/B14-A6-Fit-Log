@@ -70,42 +70,34 @@ export default async function WorkoutDetail({ params }: { params: Promise<{ id: 
             ))}
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 mb-8">
-            <h3 className="font-oswald text-xl font-bold uppercase text-white mb-4 border-b border-zinc-800 pb-2">
-              Key Specs
-            </h3>
-            <div className="grid grid-cols-2 gap-y-4 gap-x-8 text-sm">
-              <div>
-                <p className="text-zinc-500 uppercase font-bold mb-1">Equipment</p>
-                <p className="text-white font-medium">{workout.equipment}</p>
-              </div>
-              <div>
-                <p className="text-zinc-500 uppercase font-bold mb-1">Difficulty</p>
-                <p className="text-white font-medium">{workout.difficulty}</p>
-              </div>
-              <div>
-                <p className="text-zinc-500 uppercase font-bold mb-1">Sets</p>
-                <p className="text-white font-medium">{workout.sets}</p>
-              </div>
-              <div>
-                <p className="text-zinc-500 uppercase font-bold mb-1">Reps</p>
-                <p className="text-white font-medium">{workout.reps}</p>
-              </div>
-              <div>
-                <p className="text-zinc-500 uppercase font-bold mb-1">Duration</p>
-                <p className="text-white font-medium">{workout.duration} min</p>
-              </div>
-              <div>
-                <p className="text-zinc-500 uppercase font-bold mb-1">Calories</p>
-                <p className="text-white font-medium">{workout.caloriesBurned} kcal</p>
-              </div>
-              <div>
-                <p className="text-zinc-500 uppercase font-bold mb-1">Rating</p>
-                <p className="text-white font-medium flex items-center gap-1">
-                  {workout.rating}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-500"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                </p>
-              </div>
+          <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl overflow-hidden mb-8">
+            <div className="flex justify-between items-center px-6 py-4 border-b border-zinc-800/50 text-sm">
+              <span className="text-zinc-500 font-bold uppercase tracking-wider">Equipment</span>
+              <span className="text-white font-medium">{workout.equipment}</span>
+            </div>
+            <div className="flex justify-between items-center px-6 py-4 border-b border-zinc-800/50 text-sm">
+              <span className="text-zinc-500 font-bold uppercase tracking-wider">Difficulty</span>
+              <span className="text-white font-medium">{workout.difficulty}</span>
+            </div>
+            <div className="flex justify-between items-center px-6 py-4 border-b border-zinc-800/50 text-sm">
+              <span className="text-zinc-500 font-bold uppercase tracking-wider">Sets</span>
+              <span className="text-white font-medium">{workout.sets}</span>
+            </div>
+            <div className="flex justify-between items-center px-6 py-4 border-b border-zinc-800/50 text-sm">
+              <span className="text-zinc-500 font-bold uppercase tracking-wider">Reps</span>
+              <span className="text-white font-medium">{workout.reps}</span>
+            </div>
+            <div className="flex justify-between items-center px-6 py-4 border-b border-zinc-800/50 text-sm">
+              <span className="text-zinc-500 font-bold uppercase tracking-wider">Duration</span>
+              <span className="text-white font-medium">{workout.duration} min</span>
+            </div>
+            <div className="flex justify-between items-center px-6 py-4 border-b border-zinc-800/50 text-sm">
+              <span className="text-zinc-500 font-bold uppercase tracking-wider">Calories</span>
+              <span className="text-white font-medium">{workout.caloriesBurned} kcal</span>
+            </div>
+            <div className="flex justify-between items-center px-6 py-4 text-sm">
+              <span className="text-zinc-500 font-bold uppercase tracking-wider">Rating</span>
+              <span className="text-white font-medium">{workout.rating}</span>
             </div>
           </div>
 

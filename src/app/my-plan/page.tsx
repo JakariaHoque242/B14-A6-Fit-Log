@@ -4,13 +4,14 @@ import { usePlanContext } from "@/context/PlanContext";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Flame, Star, Check, X, ArrowRight, Activity, Timer } from "lucide-react";
+import { Clock, Flame, Star, Check, X, ArrowRight, Activity, Timer, ChevronDown } from "lucide-react";
 import clsx from "clsx";
 import { PlannedWorkout, Workout } from "@/types";
 
 export default function MyPlan() {
   const { plan, saved, isLoaded, removeFromPlan, markDone, removeFromSaved } = usePlanContext();
   const [activeTab, setActiveTab] = useState<"plan" | "saved">("plan");
+  const [sortBy, setSortBy] = useState<"Duration" | "Calories" | "Rating">("Duration");
 
   if (!isLoaded) {
     return (
@@ -25,7 +26,13 @@ export default function MyPlan() {
   const minutes = plan.reduce((acc, curr) => acc + curr.duration, 0);
   const calories = plan.reduce((acc, curr) => acc + curr.caloriesBurned, 0);
 
-  const displayList = activeTab === "plan" ? plan : saved;
+  const rawList = activeTab === "plan" ? plan : saved;
+  const displayList = [...rawList].sort((a, b) => {
+    if (sortBy === "Duration") return b.duration - a.duration;
+    if (sortBy === "Calories") return b.caloriesBurned - a.caloriesBurned;
+    if (sortBy === "Rating") return b.rating - a.rating;
+    return 0;
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 md:py-20">
@@ -65,32 +72,44 @@ export default function MyPlan() {
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="flex border-b border-zinc-800 mb-8">
-        <button
-          onClick={() => setActiveTab("plan")}
-          className={clsx(
-            "pb-4 px-6 font-bold uppercase text-sm tracking-wider transition-colors relative",
-            activeTab === "plan" ? "text-white" : "text-zinc-500 hover:text-zinc-300"
-          )}
-        >
-          Today&apos;s Plan
-          {activeTab === "plan" && (
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-[#ccff00]" />
-          )}
-        </button>
-        <button
-          onClick={() => setActiveTab("saved")}
-          className={clsx(
-            "pb-4 px-6 font-bold uppercase text-sm tracking-wider transition-colors relative",
-            activeTab === "saved" ? "text-white" : "text-zinc-500 hover:text-zinc-300"
-          )}
-        >
-          Saved
-          {activeTab === "saved" && (
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-white" />
-          )}
-        </button>
+      {/* Tabs and Sort */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <div className="flex bg-zinc-900 border border-zinc-800 rounded-xl p-1 inline-flex">
+          <button
+            onClick={() => setActiveTab("plan")}
+            className={clsx(
+              "px-6 py-2 rounded-lg font-bold text-sm transition-colors",
+              activeTab === "plan" ? "bg-zinc-800 text-white" : "text-zinc-500 hover:text-zinc-300"
+            )}
+          >
+            Today's Plan
+          </button>
+          <button
+            onClick={() => setActiveTab("saved")}
+            className={clsx(
+              "px-6 py-2 rounded-lg font-bold text-sm transition-colors",
+              activeTab === "saved" ? "bg-zinc-800 text-white" : "text-zinc-500 hover:text-zinc-300"
+            )}
+          >
+            Saved
+          </button>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="text-zinc-500 text-sm font-medium">Sort By</span>
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as "Duration" | "Calories" | "Rating")}
+              className="appearance-none bg-zinc-900 border border-zinc-800 text-white px-4 py-2 pr-10 rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors cursor-pointer outline-none"
+            >
+              <option value="Duration">Duration</option>
+              <option value="Calories">Calories</option>
+              <option value="Rating">Rating</option>
+            </select>
+            <ChevronDown className="w-4 h-4 text-zinc-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+          </div>
+        </div>
       </div>
 
       {/* List */}
@@ -143,22 +162,22 @@ export default function MyPlan() {
               <div className="flex flex-wrap md:flex-nowrap items-center gap-2 w-full md:w-auto mt-4 md:mt-0">
                 <Link
                   href={`/workout/${workout.id}`}
-                  className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg font-semibold text-sm transition-colors flex-1 md:flex-none text-center"
+                  className="px-6 py-2 border border-zinc-700 hover:bg-zinc-800 text-white rounded-full font-semibold text-sm transition-colors flex-1 md:flex-none text-center"
                 >
                   View Details
                 </Link>
                 {activeTab === "plan" && (
                   <button
                     onClick={() => markDone(workout.id)}
-                    className="px-4 py-2 bg-[#ccff00] hover:bg-[#b3e600] text-black rounded-lg font-bold text-sm transition-colors flex items-center justify-center gap-2 flex-1 md:flex-none"
+                    className="px-6 py-2 bg-[#ccff00] hover:bg-[#b3e600] text-black rounded-full font-bold text-sm transition-colors flex items-center justify-center gap-2 flex-1 md:flex-none"
                   >
                     <Check className="w-4 h-4" />
-                    Done
+                    Mark as Done
                   </button>
                 )}
                 <button
                   onClick={() => activeTab === "plan" ? removeFromPlan(workout.id) : removeFromSaved(workout.id)}
-                  className="p-2 border border-zinc-700 hover:bg-red-500 hover:border-red-500 hover:text-white text-zinc-400 rounded-lg transition-colors flex items-center justify-center flex-shrink-0"
+                  className="p-2 text-zinc-500 hover:text-white transition-colors flex items-center justify-center flex-shrink-0"
                   aria-label="Remove"
                 >
                   <X className="w-5 h-5" />
