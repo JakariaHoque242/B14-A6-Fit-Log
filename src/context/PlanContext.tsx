@@ -23,11 +23,16 @@ export const PlanProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const savedPlan = localStorage.getItem("fitlog_plan");
-    const savedWorkouts = localStorage.getItem("fitlog_saved");
-    if (savedPlan) setPlan(JSON.parse(savedPlan));
-    if (savedWorkouts) setSaved(JSON.parse(savedWorkouts));
-    setIsLoaded(true);
+    try {
+      const savedPlan = localStorage.getItem("fitlog_plan");
+      const savedWorkouts = localStorage.getItem("fitlog_saved");
+      if (savedPlan) setPlan(JSON.parse(savedPlan));
+      if (savedWorkouts) setSaved(JSON.parse(savedWorkouts));
+    } catch (e) {
+      console.error("Failed to parse local storage", e);
+    } finally {
+      setIsLoaded(true);
+    }
   }, []);
 
   useEffect(() => {
